@@ -1,22 +1,32 @@
 import java.util.Scanner;
 
-public class ŚredniaOcenLosowe {
-
-    private static final int LICZBA_PRZEDMIOTÓW = 5;
-    private static final int MAX_OCENA = 6;
-
+public class SredniaArytmetyczna {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-
-        // Losowe generowanie ocen
-        double[] oceny = new double[LICZBA_PRZEDMIOTÓW];
-        for (int i = 0; i < LICZBA_PRZEDMIOTÓW; i++) {
-            oceny[i] = random.nextDouble() * MAX_OCENA;
+    
+        // Wczytaj liczbę liczb
+        System.out.println("Podaj liczbę liczb do uśrednienia: ");
+        int liczbaLiczb = 3; // Wstawiona wartość: 3
+    
+        //  tablicę do przechowywania liczb
+        double[] liczby = new double[liczbaLiczb];
+    
+        // Wczytaj wartości liczb
+        for (int i = 0; i < liczbaLiczb; i++) {
+            System.out.println("Podaj " + (i + 1) + ". liczbę: ");
+            liczby[i] = scanner.nextDouble();
         }
-
-        // Wyświetlanie pytań i pobieranie odpowiedzi
-        for (int i = 0; i < LICZBA_PRZEDMIOTÓW; i++) {
-            System.out.println("Podaj ocenę z przedmiotu " + (i + 1) + ": ");
-            oceny[i] = scanner.nextDouble();
+    
+        // Oblicz sumę liczb
+        double suma = 0;
+        for (double liczba : liczby) {
+            suma += liczba;
         }
+    
+        // Oblicz średnią arytmetyczną
+        double srednia = suma / liczbaLiczb;
+    
+        // Wyświetl wynik
+        System.out.println("Średnia arytmetyczna: " + srednia);
+    }
+    
