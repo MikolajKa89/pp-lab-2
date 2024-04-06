@@ -1,28 +1,42 @@
+import java.util.Random;
 import java.util.Scanner;
 
-public class ŚredniaOcen {
+public class ŚredniaOcenLosowe {
+
+    private static final int LICZBA_PRZEDMIOTÓW = 5;
+    private static final int MAX_OCENA = 6;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
-        System.out.println("Podaj liczbę przedmiotów: ");
-        int liczbaPrzedmiotów = scanner.nextInt();
+        // Losowe generowanie ocen
+        double[] oceny = new double[LICZBA_PRZEDMIOTÓW];
+        for (int i = 0; i < LICZBA_PRZEDMIOTÓW; i++) {
+            oceny[i] = random.nextDouble() * MAX_OCENA;
+        }
 
-        double[] oceny = new double[liczbaPrzedmiotów];
+        // Losowe generowanie pytań
+        String[] pytania = new String[LICZBA_PRZEDMIOTÓW];
+        for (int i = 0; i < LICZBA_PRZEDMIOTÓW; i++) {
+            pytania[i] = "Podaj ocenę z przedmiotu " + (i + 1) + ": ";
+        }
 
-        for (int i = 0; i < liczbaPrzedmiotów; i++) {
-            System.out.println("Podaj ocenę z przedmiotu " + (i + 1) + ": ");
+        // Wyświetlanie pytań i pobieranie odpowiedzi
+        for (int i = 0; i < LICZBA_PRZEDMIOTÓW; i++) {
+            System.out.println(pytania[i]);
             oceny[i] = scanner.nextDouble();
         }
 
+        // Obliczanie średniej
         double średnia = 0;
         for (double ocena : oceny) {
             średnia += ocena;
         }
 
-        średnia /= liczbaPrzedmiotów;
+        średnia /= LICZBA_PRZEDMIOTÓW;
 
+        // Wyświetlanie wyników
         System.out.println("Średnia ocen: " + średnia);
     }
 }
-
