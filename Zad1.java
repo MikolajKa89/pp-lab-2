@@ -15,32 +15,8 @@ public class ŚredniaOcenLosowe {
             oceny[i] = random.nextDouble() * MAX_OCENA;
         }
 
-        // Losowe generowanie pytań
-        String[] pytania = new String[LICZBA_PRZEDMIOTÓW];
-        for (int i = 0; i < LICZBA_PRZEDMIOTÓW; i++) {
-            pytania[i] = "Podaj ocenę z przedmiotu " + (i + 1) + ": ";
-        }
-
         // Wyświetlanie pytań i pobieranie odpowiedzi
         for (int i = 0; i < LICZBA_PRZEDMIOTÓW; i++) {
-            System.out.println(pytania[i]);
+            System.out.println("Podaj ocenę z przedmiotu " + (i + 1) + ": ");
             oceny[i] = scanner.nextDouble();
         }
-
-        // Obliczanie średniej
-        double średnia = 0;
-        for (double ocena : oceny) {
-            średnia += ocena;
-        }
-
-        średnia /= LICZBA_PRZEDMIOTÓW;
-
-        // Wyświetlanie wyników
-        System.out.println("Oceny:");
-        for (double ocena : oceny) {
-            System.out.println(ocena);
-        }
-
-        System.out.println("Średnia: " + średnia);
-    }
-}
