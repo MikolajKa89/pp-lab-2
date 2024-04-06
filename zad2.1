@@ -1,33 +1,32 @@
-import java.util.Scanner;
+import java.util.Random;
 
-public class TablicaOcen {
+public class TablicaOcenLosowe {
+
+    private static final int LICZBA_OCEN = 10;
+    private static final int MAX_OCENA = 6;
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
-        System.out.println("Podaj liczbę ocen: ");
-        int liczbaOcen = scanner.nextInt();
-
-        double[] oceny = new double[liczbaOcen];
-
-        for (int i = 0; i < liczbaOcen; i++) {
-            System.out.println("Podaj ocenę " + (i + 1) + ": ");
-            oceny[i] = scanner.nextDouble();
+        // Losowe generowanie ocen
+        double[] oceny = new double[LICZBA_OCEN];
+        for (int i = 0; i < LICZBA_OCEN; i++) {
+            oceny[i] = random.nextDouble() * MAX_OCENA;
         }
 
-        double średnia = 0;
-        for (double ocena : oceny) {
-            średnia += ocena;
-        }
-
-        średnia /= liczbaOcen;
-
+        // Wyświetlanie ocen
         System.out.println("Oceny:");
         for (double ocena : oceny) {
             System.out.println(ocena);
         }
 
+        // Obliczanie i wyświetlanie średniej
+        double średnia = 0;
+        for (double ocena : oceny) {
+            średnia += ocena;
+        }
+
+        średnia /= LICZBA_OCEN;
         System.out.println("Średnia: " + średnia);
     }
 }
-
