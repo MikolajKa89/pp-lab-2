@@ -37,6 +37,11 @@ public class ŚredniaOcenLosowe {
         średnia /= LICZBA_PRZEDMIOTÓW;
 
         // Wyświetlanie wyników
-        System.out.println("Średnia ocen: " + średnia);
+        System.out.println("Oceny:");
+        for (double ocena : oceny) {
+            System.out.println(ocena);
+        }
+
+        System.out.println("Średnia: " + średnia);
     }
 }
